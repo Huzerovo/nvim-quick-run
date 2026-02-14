@@ -23,7 +23,7 @@ function M.run_command(cmd)
   vim.api.nvim_win_set_buf(win, buf) -- 将缓冲区附加到窗口
 
   -- 3. 设置窗口选项
-  vim.api.nvim_set_option_value('wrap', true, { win = win })       -- 自动换行
+  vim.api.nvim_set_option_value('wrap', false, { win = win })       -- 自动换行
   vim.api.nvim_set_option_value('cursorline', true, { win = win }) -- 显示光标行
 
   -- 4. 执行命令并捕获输出
