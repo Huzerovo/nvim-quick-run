@@ -1,4 +1,3 @@
--- run_in_split.lua
 -- 在垂直分割窗口中运行命令并显示输出
 
 local M = {}
@@ -53,5 +52,14 @@ function M.run_command(cmd)
   -- 8. 提示信息（可选）
   print("命令已执行，按 q 或 <Esc> 关闭窗口")
 end
+
+-- 定义用户命令 :RunInSplit {command}
+vim.api.nvim_create_user_command(
+  'QuickRun',
+  function(opts)
+    M.run_command(opts.args)
+  end,
+  { nargs = 1, complete = 'command' } -- 支持命令补全
+)
 
 return M
